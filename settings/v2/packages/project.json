@@ -1,3 +1,31 @@
 {
-  "__version__": "1.0.6"
+  "__version__": "1.0.6",
+  "general": {
+    "designResolution": {
+      "fitWidth": false,
+      "width": 640,
+      "height": 960
+    }
+  },
+  "physics": {
+    "gravity": {
+      "x": 10
+    },
+    "collisionGroups": [
+      {
+        "index": 1,
+        "name": "obstacle"
+      },
+      {
+        "index": 2,
+        "name": "point"
+      }
+    ],
+    "collisionMatrix": {
+      "0": 7,
+      "1": 1,
+      "2": 1
+    }
+  },
+  "custom_joint_texture_layouts": []
 }
