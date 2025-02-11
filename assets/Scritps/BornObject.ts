@@ -33,7 +33,7 @@ export class BornObject extends Component {
 
   spawnObject(): void {
 
-    let index =Math.floor(randomRange(-40, 200));
+    let index =Math.floor(randomRange(-20, 200));
     let nodeOjbect = instantiate(this.pipePrefab);
     nodeOjbect.setPosition(this.node.position.x,index,0);
     this.node.addChild(nodeOjbect);

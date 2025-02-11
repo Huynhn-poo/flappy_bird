@@ -1,36 +1,54 @@
-import { _decorator, Component, debug, director, Label, Node } from 'cc';
+import {
+  _decorator,
+  AudioSource,
+  Component,
+  debug,
+  director,
+  game,
+  Label,
+  Node,
+} from "cc";
 const { ccclass, property } = _decorator;
 
-@ccclass('GameController')
+@ccclass("GameController")
 export class GameController extends Component {
-    
-    private static score: number = 0;
+  private static score: number = 0;
 
-    @property({type: Label})
-    scoreText: Label = null;
-    start() {
-      
-    }
+  @property({ type: Label })
+  scoreText: Label = null;
 
-    update(deltaTime: number) {
-        
-    }
+  @property({ type: Label })
+  scoreGameOverText: Label = null;
 
-   public gameOver(): void {
-        console.log('Game Over');
-       // director.pause();
-    }
+  @property({ type: Node })
+  gameOverSprite: Node = null;
 
-    gameStart(){
+  @property(AudioSource)
+  public audioCrtl: AudioSource = null;
+  protected onLoad(): void {
+    this.audioCrtl = this.getComponent(AudioSource);
+  }
+  start() {}
 
-    }
+  update(deltaTime: number) {}
 
-    addScore(score: number) {
-        GameController.score += score;
-        this.scoreText.string = `${GameController.score}`;
-    }
+  public gameOver(): void {
+    console.log("Game Over");
+    director.pause();
+    this.gameOverSprite.active = true;
+  }
 
+  gameStart() {}
 
+  public ChangetoMenu(): void {
+    GameController.score = 0;
+    director.loadScene("menu");
+    director.resume();
+  }
+  
+  addScore(score: number) {
+    GameController.score += score;
+    this.scoreText.string = `${GameController.score}`;
+    this.scoreGameOverText.string = `${GameController.score}`;
+  }
 }
-
-

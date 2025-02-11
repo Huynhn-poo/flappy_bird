@@ -3,7 +3,7 @@ const { ccclass, property } = _decorator;
 
 @ccclass("MovePipe")
 export class MovePipe extends Component {
-  private speed: number = 20;
+  private speed: number = 40;
   pos: Vec3 = new Vec3();
 
   deltatime: number = 0;
