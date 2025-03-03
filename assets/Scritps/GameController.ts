@@ -1,13 +1,4 @@
-import {
-  _decorator,
-  AudioSource,
-  Component,
-  debug,
-  director,
-  game,
-  Label,
-  Node,
-} from "cc";
+import { _decorator, AudioSource, Component, debug, director, game, Label, Node } from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("GameController")
@@ -45,7 +36,7 @@ export class GameController extends Component {
     director.loadScene("menu");
     director.resume();
   }
-  
+
   addScore(score: number) {
     GameController.score += score;
     this.scoreText.string = `${GameController.score}`;
